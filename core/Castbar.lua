@@ -637,7 +637,7 @@ function Punsch_Castbar_OnChannelStart(name, duration)
 				-- 如果身上有+1S的装备，就应该是6次
 				if HasItemInList() then
 					DEFAULT_CHAT_FRAME:AddMessage("PCH +1S")
-					tickinfo.TickCount = tickinfo.TickCount + 1
+					tickinfo.TickCount = 6
 					-- elseif e.spellName == "奥术飞弹" and duration == 3000 then
 					-- 	tickinfo.TickCount = 3
 					-- elseif e.spellName == "奥术飞弹" and duration == 4000 then
