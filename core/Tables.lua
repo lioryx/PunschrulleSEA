@@ -2,143 +2,142 @@ Punsch_Tables_KnownChannels = {
 	--This table is just used to find the spellname from the icon. Should only contain unnamed channeled spells cast by the user
 	ByIcon = {
 		MAGE = {
-			["Interface\\Icons\\Spell_Frost_IceStorm"] = "Blizzard",
-			["Interface\\Icons\\Spell_Nature_Purge"] = "Evocation" ,
-			["Interface\\Icons\\Spell_Nature_StarFall"] = "Arcane Missiles",
+			["Interface\\Icons\\Spell_Frost_IceStorm"] = "暴风雪",
+			["Interface\\Icons\\Spell_Nature_Purge"] = "唤醒",
+			["Interface\\Icons\\Spell_Nature_StarFall"] = "奥术飞弹",
 		},
 		PRIEST = {
-			["Interface\\Icons\\Spell_Holy_MindVision"] = "Mind Vision",
-			["Interface\\Icons\\Spell_Shadow_SiphonMana"] = "Mind Flay",
+			["Interface\\Icons\\Spell_Holy_MindVision"] = "心灵视界",
+			["Interface\\Icons\\Spell_Shadow_SiphonMana"] = "精神鞭笞",
 		},
 		WARLOCK = {
-			["Interface\\Icons\\Spell_Shadow_RainOfFire"] = "Rain of Fire",
-			["Interface\\Icons\\Spell_Shadow_Haunting"] = "Drain Soul",
-			["Interface\\Icons\\Spell_Shadow_LifeDrain02"] = "Drain Life",
-			["Interface\\Icons\\Spell_Shadow_SiphonMana"] = "Drain Mana",
-			["Interface\\Icons\\Spell_Fire_Incinerate"] = "Hellfire",
-			["Interface\\Icons\\Spell_Shadow_LifeDrain"] = "Health Funnel"
+			["Interface\\Icons\\Spell_Shadow_RainOfFire"] = "火焰之雨",
+			["Interface\\Icons\\Spell_Shadow_Haunting"] = "吸取灵魂",
+			["Interface\\Icons\\Spell_Shadow_LifeDrain02"] = "吸取生命",
+			["Interface\\Icons\\Spell_Shadow_SiphonMana"] = "吸取法力",
+			["Interface\\Icons\\Spell_Fire_Incinerate"] = "地狱烈焰",
+			["Interface\\Icons\\Spell_Shadow_LifeDrain"] = "生命通道"
 		},
 		HUNTER = {
-			["Interface\\Icons\\Ability_Hunter_EagleEye"] = "Eagle Eye",
-			["Interface\\Icons\\Ability_Hunter_MendPet"] = "Mend Pet",
-			["Interface\\Icons\\Ability_Hunter_BeastTaming"] = "Tame Beast",
+			["Interface\\Icons\\Ability_Hunter_EagleEye"] = "鹰眼术",
+			["Interface\\Icons\\Ability_Hunter_MendPet"] = "治疗宠物",
+			["Interface\\Icons\\Ability_Hunter_BeastTaming"] = "驯服野兽",
 		},
 		DRUID = {
-			["Interface\\Icons\\Spell_Nature_Cyclone"] = "Hurricane",
-			["Interface\\Icons\\Spell_Nature_Tranquility"] = "Tranquility",
+			["Interface\\Icons\\Spell_Nature_Cyclone"] = "飓风",
+			["Interface\\Icons\\Spell_Nature_Tranquility"] = "宁静",
 		},
 		SHARED = {
-			["Interface\\Icons\\INV_Misc_Bandage_12"] = "Heavy Runecloth Bandage",
-			["Interface\\Icons\\INV_Misc_Bandage_11"] = "Runecloth Bandage",
-			["Interface\\Icons\\INV_Misc_Bandage_20"] = "Heavy Mageweave Bandage",
-			["Interface\\Icons\\INV_Misc_Bandage_19"] = "Mageweave Bandage",
-			["Interface\\Icons\\INV_Misc_Bandage_02"] = "Heavy Silk Bandage",
-			["Interface\\Icons\\INV_Misc_Bandage_01"] = "Silk Bandage",
-			["Interface\\Icons\\INV_Misc_Bandage_17"] = "Heavy Wool Bandage",
-			["Interface\\Icons\\INV_Misc_Bandage_14"] = "Wool Bandage",
-			["Interface\\Icons\\INV_Misc_Bandage_18"] = "Heavy Linen Bandage",
-			["Interface\\Icons\\INV_Misc_Bandage_15"] = "Linen Bandage",
-
+			["Interface\\Icons\\INV_Misc_Bandage_12"] = "厚符文布绷带",
+			["Interface\\Icons\\INV_Misc_Bandage_11"] = "符文布绷带",
+			["Interface\\Icons\\INV_Misc_Bandage_20"] = "厚魔纹绷带",
+			["Interface\\Icons\\INV_Misc_Bandage_19"] = "魔纹绷带",
+			["Interface\\Icons\\INV_Misc_Bandage_02"] = "厚丝质绷带",
+			["Interface\\Icons\\INV_Misc_Bandage_01"] = "丝质绷带",
+			["Interface\\Icons\\INV_Misc_Bandage_17"] = "厚绒线绷带",
+			["Interface\\Icons\\INV_Misc_Bandage_14"] = "绒线绷带",
+			["Interface\\Icons\\INV_Misc_Bandage_18"] = "厚亚麻绷带",
+			["Interface\\Icons\\INV_Misc_Bandage_15"] = "亚麻绷带",
 		}
 	},
 	--This table contains all information needed to show ticks on channels properly
 	ByName = {
-		["Blizzard"] = {
+		["暴风雪"] = {
 			Tick = "time",
 			TickCount = 8
 		},
-		["Arcane Missiles"] = {
+		["奥术飞弹"] = {
 			Tick = "time",
 			TickCount = 5
 		},
-		["Evocation"] = {
+		["唤醒"] = {
 			Tick = "mana",
 		},
-		["Mind Flay"] = {
+		["精神鞭笞"] = {
 			Tick = "time",
 			TickCount = 3
 		},
-		["Rain of Fire"] = {
+		["火焰之雨"] = {
 			Tick = "time",
 			TickCount = 4
 		},
-		["Drain Soul"] = {
+		["吸取灵魂"] = {
 			Tick = "time",
 			TickCount = 5
 		},
-		["Drain Life"] = {
+		["吸取生命"] = {
 			Tick = "time",
 			TickCount = 5
 		},
-		["Drain Mana"] = {
+		["吸取法力"] = {
 			Tick = "time",
 			TickCount = 5
 		},
-		["Hellfire"] = {
+		["地狱烈焰"] = {
 			Tick = "time",
 			TickCount = 15
 		},
-		["Health Funnel"] = {
+		["生命通道"] = {
 			Tick = "time",
 			TickCount = 10
 		},
-		["Mend Pet"] = {
+		["治疗宠物"] = {
 			Tick = "time",
 			TickCount = 5
 		},
-		["Hurricane"] = {
+		["飓风"] = {
 			Tick = "time",
 			TickCount = 10
 		},
-		["Tranquility"] = {
+		["宁静"] = {
 			Tick = "time",
 			TickCount = 5
 		},
 
 		--item based channels
-		["Heavy Runecloth Bandage"] = {
+		["厚符文布绷带"] = {
 			Tick = "time",
 			TickCount = 8
 		},
-		["Runecloth Bandage"] = {
+		["符文布绷带"] = {
 			Tick = "time",
 			TickCount = 8
 		},
-		["Heavy Mageweave Bandage"] = {
+		["厚魔纹绷带"] = {
 			Tick = "time",
 			TickCount = 8
 		},
-		["Mageweave Bandage"] = {
+		["魔纹绷带"] = {
 			Tick = "time",
 			TickCount = 8
 		},
-		["Heavy Silk Bandage"] = {
+		["厚丝质绷带"] = {
 			Tick = "time",
 			TickCount = 8
 		},
-		["Silk Bandage"] = {
+		["丝质绷带"] = {
 			Tick = "time",
 			TickCount = 8
 		},
-		["Heavy Wool Bandage"] = {
+		["厚绒线绷带"] = {
 			Tick = "time",
 			TickCount = 7
 		},
-		["Wool Bandage"] = {
+		["绒线绷带"] = {
 			Tick = "time",
 			TickCount = 7
 		},
-		["Heavy Linen Bandage"] = {
+		["厚亚麻绷带"] = {
 			Tick = "time",
 			TickCount = 6
 		},
-		["Linen Bandage"] = {
+		["亚麻绷带"] = {
 			Tick = "time",
 			TickCount = 6
 		},
 
 		--racial channel
-		["Cannibalize"] = {
+		["食尸"] = {
 			Tick = "time",
 			TickCount = 5,
 			Icon = "Interface\\Icons\\Ability_Racial_Cannibalize"
@@ -150,7 +149,7 @@ Punsch_Tables_KnownChannels = {
 	["First Aid"] = "Interface\\Icons\\Spell_Holy_SealOfSacrifice",
 	["Herb Gathering"] = "Interface\\Icons\\INV_Misc_Flower_02",
 --]]
-	--/script message(ActionButton1Icon:GetTexture())
+--/script message(ActionButton1Icon:GetTexture())
 
 Punsch_Tables_ProfilePresets = {
 	Default = {
@@ -271,7 +270,8 @@ Punsch_Tables_ProfilePresets = {
 
 				--Castbar
 
-				ShowMultiShot = false,
+				ShowMultiShot = true,
+				ShowTrueShot = true,
 				ShowAimedShot = true,
 
 				ShowRank = false,
@@ -376,14 +376,14 @@ Punsch_Tables_ProfilePresets = {
 			},
 			["Mirror"] = {
 				--Entity
-				Width = 170,
-				Height = 11,
+				Width = 500,
+				Height = 30,
 				Anchor = {
 					X = 0,
-					Y = 1,
-					rPoint = "TOPRIGHT",
+					Y = 550,
+					rPoint = "CENTER",
 					rTo = "Castbar",
-					Point = "BOTTOMRIGHT"
+					Point = "CENTER"
 				},
 				Bg = {
 					r = 0,
@@ -407,7 +407,7 @@ Punsch_Tables_ProfilePresets = {
 
 				--Bar
 				AlwaysShow = false,
-				ShowTextureOnFullBar = false;
+				ShowTextureOnFullBar = false,
 				StretchTexture = false,
 				Decimals = 1,
 
@@ -480,7 +480,7 @@ Punsch_Tables_ProfilePresets = {
 				},
 
 				--Mirror
-				GrowUp = true, 
+				GrowUp = true,
 				Padding = 1,
 				HideBlizzardBar = true,
 
@@ -491,84 +491,84 @@ Punsch_Tables_ProfilePresets = {
 				},
 				Events = {
 					BREATH = {
-						label = "Breath",
+						label = "呼吸",
 						enable = true,
 						r = 0,
 						g = 0.5,
 						b = 1,
-						a = 1,
+						a = 0.5,
 						icon = "Interface\\Icons\\Spell_Shadow_DemonBreath"
 					},
 					EXHAUSTION = {
-						label = "Exhaustion",
+						label = "疲惫",
 						enable = true,
 						r = 1,
 						g = 0.9,
 						b = 0,
-						a = 1,
+						a = 0.5,
 						icon = "Interface\\Icons\\Ability_Suffocate"
 					},
 					FEIGNDEATH = {
-						label = "Feign Death",
+						label = "假死",
 						enable = true,
 						r = 1,
 						g = 0.7,
 						b = 0,
-						a = 1,
+						a = 0.5,
 						icon = "Interface\\Icons\\Ability_Rogue_FeignDeath"
 					},
 					CAMP = {
-						label = "Logout",
+						label = "小退",
 						enable = true,
 						r = 1,
 						g = 0.7,
 						b = 0,
-						a = 1,
+						a = 0.5,
 						icon = "Interface\\Icons\\Spell_Magic_PolymorphChicken"
 					},
 					QUIT = {
-						label = "Quit Game",
+						label = "退出游戏",
 						enable = true,
 						r = 1,
 						g = 0.7,
 						b = 0,
-						a = 1,
+						a = 0.5,
 						icon = "Interface\\Icons\\Spell_Magic_PolymorphChicken"
 					},
 					BOOT = {
-						label = "Instance Boot",
+						label = "副本启动",
 						enable = true,
 						r = 1,
 						g = 0,
 						b = 0,
-						a = 1,
+						a = 0.5,
 						icon = "Interface\\Icons\\INV_Misc_Rune_01"
 					},
 					SUMMON = {
-						label = "Summon",
+						label = "召唤",
 						enable = true,
 						r = 1,
 						g = 0.3,
 						b = 1,
-						a = 1,
+						a = 0.5,
 						icon = "Interface\\Icons\\Spell_Shadow_Twilight"
 					},
 					GAMESTART = {
-						label = "Game Start",
+						label = "游戏开始",
 						enable = true,
 						r = 0,
 						g = 1,
 						b = 0,
-						a = 1,
+						a = 0.5,
 						icon = "Interface\\Icons\\Ability_DualWield"
 					},
 					WSG_FLAGRESPAWN = {
-						label = "Flag respawn",
+						label = "旗帜重生",
 						enable = true,
 						r = 0,
 						g = 1,
 						b = 0,
-						a = 1,
+						a = 0.5,
 						icon = "Interface\\Icons\\Ability_DualWield"
 					},
 				}

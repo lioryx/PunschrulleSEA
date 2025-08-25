@@ -1,8 +1,8 @@
 ## Interface: 11200
-## Title: Punschrulle Castbar 1.0
-## Notes: Highly customizable castbar.
+## Title: |cFF00FF00施法读条计时
+## Notes: 技能施法条计时。|n/pch config |cFFFFFF00|n 乌龟服定制版 by Sunelegy
 ## Author: Attero
-## Version: 1.0
+## Version: 1.01
 ## Dependencies: 
 ## SavedVariables: PunschrulleDB
 ## SavedVariablesPerCharacter: PunschrulleProfile

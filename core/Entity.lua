@@ -1,31 +1,31 @@
 PunschEntities = {}
 
-function Punsch_Entity_Create(e,db)
-	e.self = CreateFrame("Frame","Punschrulle" .. e.Type,UIParent)
+function Punsch_Entity_Create(e, db)
+	e.self = CreateFrame("Frame", "Punschrulle" .. e.Type, UIParent)
 	e.self:SetFrameStrata("HIGH")
 
-	e.ContentFrame = CreateFrame("Frame",nil,e.self)
+	e.ContentFrame = CreateFrame("Frame", nil, e.self)
 	e.ContentFrame:SetAllPoints(e.self)
 
-	e.BorderFrame = CreateFrame("Frame",nil,e.ContentFrame)
+	e.BorderFrame = CreateFrame("Frame", nil, e.ContentFrame)
 
-	e.selfBG = e.ContentFrame:CreateTexture(nil,"BACKGROUND")
+	e.selfBG = e.ContentFrame:CreateTexture(nil, "BACKGROUND")
 	e.selfBG:SetAllPoints(e.self)
 
-	e.selfFill = e.ContentFrame:CreateTexture(nil,"BORDER")
+	e.selfFill = e.ContentFrame:CreateTexture(nil, "BORDER")
 	e.selfFill:SetPoint("TOPLEFT", e.self)
 	e.selfFill:SetHeight(db.Height)
 
-	e.self:SetPoint(db.Anchor.Point,UIParent,db.Anchor.rPoint,db.Anchor.X,db.Anchor.Y)
+	e.self:SetPoint(db.Anchor.Point, UIParent, db.Anchor.rPoint, db.Anchor.X, db.Anchor.Y)
 end
 
-function Punsch_Entity_UpdateAll() 
-	for _,e in pairs(PunschEntities) do
-		Punsch_Entity_Update(e,PunschrulleDB.Profiles[PunschrulleProfile]["Entities"][e.Type])
+function Punsch_Entity_UpdateAll()
+	for _, e in pairs(PunschEntities) do
+		Punsch_Entity_Update(e, PunschrulleDB.Profiles[PunschrulleProfile]["Entities"][e.Type])
 	end
 end
 
-function Punsch_Entity_Update(e,db) 
+function Punsch_Entity_Update(e, db)
 	e.self:ClearAllPoints()
 
 	e.self:SetWidth(db.Width)
@@ -44,11 +44,12 @@ function Punsch_Entity_Update(e,db)
 	end
 
 	if db.Border.Show then
-		e.BorderFrame:SetPoint("TOPLEFT",e.ContentFrame,"TOPLEFT",-db.Border.Padding,db.Border.Padding)
-		e.BorderFrame:SetPoint("BOTTOMRIGHT",e.ContentFrame,"BOTTOMRIGHT",db.Border.Padding,-db.Border.Padding)
+		e.BorderFrame:SetPoint("TOPLEFT", e.ContentFrame, "TOPLEFT", -db.Border.Padding, db.Border.Padding)
+		e.BorderFrame:SetPoint("BOTTOMRIGHT", e.ContentFrame, "BOTTOMRIGHT", db.Border.Padding, -db.Border.Padding)
 		e.BorderFrame:SetBackdrop({
 			edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
-			edgeSize = db.Border.Size})
+			edgeSize = db.Border.Size
+		})
 		e.BorderFrame:SetBackdropBorderColor(db.Border.r, db.Border.g, db.Border.b, db.Border.a)
 		if db.Border.OnTop then
 			e.BorderFrame:SetFrameStrata("DIALOG")
@@ -68,18 +69,17 @@ function Punsch_Entity_Update(e,db)
 	end
 end
 
-
 function Punsch_Entity_CreateUnlock(e)
-	e.UnlockFrame = CreateFrame("Frame",nil,e.self)
+	e.UnlockFrame = CreateFrame("Frame", nil, e.self)
 	e.UnlockFrame:SetFrameStrata("DIALOG")
 	e.UnlockFrame:SetAllPoints(e.self)
 	--e.UnlockFrame.parent = e
 
-	e.unlockBG = e.UnlockFrame:CreateTexture(nil,"ARTWORK")
+	e.unlockBG = e.UnlockFrame:CreateTexture(nil, "ARTWORK")
 	e.unlockBG:SetAllPoints(e.UnlockFrame)
-	e.unlockBG:SetTexture(0.1,1,0.3,0.4)
+	e.unlockBG:SetTexture(0.1, 1, 0.3, 0.4)
 
-	e.unlockText = e.UnlockFrame:CreateFontString(nil,"OVERLAY")
+	e.unlockText = e.UnlockFrame:CreateFontString(nil, "OVERLAY")
 	e.unlockText:SetFont(GameFontHighlight:GetFont(), 10)
 	e.unlockText:SetText(e.Type)
 	e.unlockText:SetPoint("CENTER", e.UnlockFrame)
@@ -94,46 +94,46 @@ function Punsch_Entity_Startmove()
 	this:GetParent():StartMoving()
 end
 
-function Punsch_Entity_GetRelativePoint(e,point,relativeTo,relativePoint)
-	local x1,y1 = Punsch_Entity_GetPoint(e,point)
-	local x2,y2 = Punsch_Entity_GetPoint(relativeTo,relativePoint)
-	return x1-x2,y1-y2
+function Punsch_Entity_GetRelativePoint(e, point, relativeTo, relativePoint)
+	local x1, y1 = Punsch_Entity_GetPoint(e, point)
+	local x2, y2 = Punsch_Entity_GetPoint(relativeTo, relativePoint)
+	return x1 - x2, y1 - y2
 end
 
-function Punsch_Entity_GetPoint(e,point)
+function Punsch_Entity_GetPoint(e, point)
 	if point == "TOP" then
 		local x = e:GetCenter()
 		return x, e:GetTop()
 	elseif point == "RIGHT" then
-		local _,y = e:GetCenter()
+		local _, y = e:GetCenter()
 		return e:GetRight(), y
 	elseif point == "BOTTOM" then
 		local x = e:GetCenter()
 		return x, e:GetBottom()
 	elseif point == "LEFT" then
-		local _,y = e:GetCenter()
+		local _, y = e:GetCenter()
 		return e:GetLeft(), y
 	elseif point == "TOPLEFT" then
 		return e:GetLeft(), e:GetTop()
 	elseif point == "TOPRIGHT" then
-		return e:GetRight(),e:GetTop()
+		return e:GetRight(), e:GetTop()
 	elseif point == "BOTTOMRIGHT" then
-		return e:GetRight(),e:GetBottom()
+		return e:GetRight(), e:GetBottom()
 	elseif point == "BOTTOMLEFT" then
-		return e:GetLeft(),e:GetBottom()
+		return e:GetLeft(), e:GetBottom()
 	elseif point == "CENTER" then
 		return e:GetCenter()
 	end
 end
 
-function Punsch_Entity_UpdateToNewAnchor(e,db)
+function Punsch_Entity_UpdateToNewAnchor(e, db)
 	local rTo
 	if db.Anchor.rTo == "Castbar" then
 		rTo = PunschEntities["Castbar"].self
 	else
 		rTo = UIParent
 	end
-	db.Anchor.X,db.Anchor.Y = Punsch_Entity_GetRelativePoint(
+	db.Anchor.X, db.Anchor.Y = Punsch_Entity_GetRelativePoint(
 		e.self,
 		db.Anchor.Point,
 		rTo,
@@ -149,7 +149,8 @@ function Punsch_Entity_Stopmove()
 	if this:GetParent().IsMovingOrSizing then
 		this:GetParent():StopMovingOrSizing()
 		local entityname = strsub(this:GetParent():GetName(), 12)
-		Punsch_Entity_UpdateToNewAnchor(PunschEntities[entityname],PunschrulleDB.Profiles[PunschrulleProfile]["Entities"][entityname])
+		Punsch_Entity_UpdateToNewAnchor(PunschEntities[entityname],
+			PunschrulleDB.Profiles[PunschrulleProfile]["Entities"][entityname])
 		this:GetParent().IsMovingOrSizing = nil
 		Punsch_Options_EditFrame_UpdateAll()
 	end
@@ -167,7 +168,7 @@ function Punsch_Entity_ToggleLock()
 end
 
 function Punsch_Entity_UnlockAll()
-	for _,e in pairs(PunschEntities) do
+	for _, e in pairs(PunschEntities) do
 		if not e.UnlockFrame then Punsch_Entity_CreateUnlock(e) end
 		e.UnlockFrame:Show()
 		e.self:SetMovable(true)
@@ -176,7 +177,7 @@ function Punsch_Entity_UnlockAll()
 end
 
 function Punsch_Entity_LockAll()
-	for _,e in pairs(PunschEntities) do
+	for _, e in pairs(PunschEntities) do
 		if not e.UnlockFrame then Punsch_Entity_CreateUnlock(e) end
 		e.UnlockFrame:Hide()
 		e.self:SetMovable(false)
