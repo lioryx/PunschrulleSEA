@@ -19,8 +19,7 @@ function HasItemInList()
 	return false
 end
 
---Aimed Shot workaround based on rais_Autoshot. All credit for that goes straight to raisnilt.
-
+-- Aimed Shot workaround based on rais_Autoshot. All credit for that goes straight to raisnilt.
 function Punsch_Castbar_Create()
 	local db = PunschrulleDB.Profiles[PunschrulleProfile]["Entities"]["Castbar"]
 	PunschEntities["Castbar"] = {}
@@ -291,7 +290,7 @@ function Punsch_Castbar_OnEvent()
 		if buffName == "狂暴" then
 			if ((UnitHealth("player") / UnitHealthMax("player")) >= 0.40) then
 				PunschEntities["Castbar"].HasteFromBerserking = 1.3 -
-						((UnitHealth("player") / UnitHealthMax("player")) - 0.4) * 5 / 3 * 0.2
+					((UnitHealth("player") / UnitHealthMax("player")) - 0.4) * 5 / 3 * 0.2
 			else
 				PunschEntities["Castbar"].HasteFromBerserking = 1.30
 			end
@@ -371,7 +370,7 @@ function Punsch_Castbar_HookUseAction(slot, checkCursor, onSelf)
 			e.LastUseActionSlot = slot
 			if SpellIsTargeting() then -- await targeting ending, should happen when player has set a target
 				e.LastSpellSetOnLoseIsTargeting = true
-			else                    --tentatively keep it until next spellcast or slot is no longer "IsCurrentAction"
+			else              --tentatively keep it until next spellcast or slot is no longer "IsCurrentAction"
 				e.LastSpellLocalCast = GetTime()
 				e.LastSpellDropOnLoseIsCurrentAction = true
 			end
@@ -443,7 +442,7 @@ function Punsch_Castbar_CastAimedShot()
 	local e = PunschEntities["Castbar"]
 	if not e.isCasting and e.aimedshot then
 		local AimedCastTime = 3000 / e.HasteFromBerserking / e.HasteFromQuickShots / e.HasteFromKiss / e.HasteFromRapid /
-				e.HasteFromAncientDespair
+			e.HasteFromAncientDespair
 		Punsch_Castbar_OnCastStart("瞄准射击", AimedCastTime)
 	end
 end
@@ -463,18 +462,42 @@ function Punsch_Castbar_CastTrueShot()
 end
 
 function Punsch_Castbar_GetLastSpellInfo()
-	local e = PunschEntities["Castbar"]
+	local e    = PunschEntities["Castbar"]
+	local lag  = nil
+	local icon = nil
+	local rank = nil
+
 	if e.LastSpellLocalCast then
-		local lag = GetTime() - e.LastSpellLocalCast
-		local icon = e.LastSpellIcon
-		local rank = e.LastSpellRank
+		lag = GetTime() - e.LastSpellLocalCast
+		icon = e.LastSpellIcon
+		rank = e.LastSpellRank
 		e.LastSpellLocalCast = nil
 		e.LastSpellIcon = nil
 		e.LastSpellRank = nil
 		e.LastSpellDropOnLoseIsCurrentAction = nil
 		e.LastSpellSetOnLoseIsTargeting = nil
-		return lag, icon, rank
 	end
+
+	-- 修复nampower断点打断技能后第二个技能icontexture为空的情况
+	if not icon then
+		-- 通过nampower来获取当前的施法信息
+		local castId, visId, _, _, _, _, _ = GetCurrentCastingInfo();
+		-- 优先使用castId，其次使用visId
+		local activeSpellId = (castId and castId > 0) and castId or ((visId and visId > 0) and visId or nil)
+
+		-- 没有法术ID就直接返回
+		if not activeSpellId then
+			return lag, icon, rank
+		end
+
+		-- 通过superwow来获取法术信息
+		local _, activeSpellRank, activeSpellTexture, _, _ = SpellInfo(activeSpellId)
+
+		icon = activeSpellTexture
+		rank = activeSpellRank
+	end
+
+	return lag, icon, rank
 end
 
 function Punsch_Castbar_OnUpdate()
@@ -524,8 +547,7 @@ function Punsch_Castbar_OnUpdate()
 			if e.TickIndicators[i].texture:GetLeft() > e.selfFill:GetRight() then --ERROR HERE when channeling supposedly.
 				e.TickIndicators[i].texture:Hide()
 			elseif e.TickIndicators[i].texture:GetRight() > e.selfFill:GetRight() then
-				local w = e.TickIndicators[i].texture:GetWidth() -
-						(e.TickIndicators[i].texture:GetRight() - e.selfFill:GetRight())
+				local w = e.TickIndicators[i].texture:GetWidth() - (e.TickIndicators[i].texture:GetRight() - e.selfFill:GetRight())
 				e.TickIndicators[i].texture:SetWidth(w)
 				e.TickIndicators[i].texture:SetTexCoord(
 					e.TickIndicators[i].ltc,
@@ -654,7 +676,7 @@ function Punsch_Castbar_OnChannelStart(name, duration)
 						e.TickIndicators[i].texture:SetWidth(e.TickWidth)
 					end
 					e.TickIndicators[i].ltc = ((tickinfo.TickCount - i) / tickinfo.TickCount) - (e.TickWidth / 2) /
-							e.self:GetWidth()
+						e.self:GetWidth()
 					e.TickIndicators[i].texture:SetTexCoord(
 						e.TickIndicators[i].ltc,
 						((tickinfo.TickCount - i) / tickinfo.TickCount) + (e.TickWidth / 2) / e.self:GetWidth(),
@@ -706,7 +728,8 @@ function Punsch_Castbar_OnChannelUpdate(duration)
 			for i = 1, e.TicksShown do
 				--move the ticks:
 				e.TickIndicators[i].texture:SetPoint("LEFT", UIParent, "LEFT",
-					e.TickIndicators[i].texture:GetLeft() - (e.self:GetWidth() * ((e.endTime - newEndTime) / e.duration)), 0)
+					e.TickIndicators[i].texture:GetLeft() - (e.self:GetWidth() * ((e.endTime - newEndTime) / e.duration)),
+					0)
 				--hide ticks outside of the castbar
 				if e.TickIndicators[i].texture:GetRight() < e.self:GetLeft() then
 					e.TickIndicators[i].texture:Hide()

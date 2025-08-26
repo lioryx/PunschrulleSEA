@@ -2,7 +2,7 @@
 ## Title: |cFF00FF00施法读条计时
 ## Notes: 技能施法条计时。|n/pch config |cFFFFFF00|n 乌龟服定制版 by Sunelegy
 ## Author: Attero
-## Version: 1.01
+## Version: 1.0.2
 ## Dependencies: 
 ## SavedVariables: PunschrulleDB
 ## SavedVariablesPerCharacter: PunschrulleProfile
